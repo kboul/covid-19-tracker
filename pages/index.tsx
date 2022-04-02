@@ -2,7 +2,7 @@ import { GetStaticProps } from "next";
 import Head from "next/head";
 import styled from "styled-components";
 
-import { Header } from "../components";
+import { Header, Statistics } from "../components";
 import Country from "../models/country";
 
 // prefetch this info on the server before painting the page
@@ -30,6 +30,8 @@ export default function Home({ countries }: HomeProps) {
 
       <Main>
         <Header countries={countries} />
+
+        <Statistics />
       </Main>
     </div>
   );

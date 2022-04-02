@@ -11,6 +11,7 @@ export default function Header({ countries }: HeaderProps) {
   return (
     <Container>
       <TitleHeader>Covid-19 Tracker</TitleHeader>
+
       <SelectCountry data={countries} />
     </Container>
   );
