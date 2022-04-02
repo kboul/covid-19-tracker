@@ -12,7 +12,7 @@ interface AppSelectProps {
 }
 
 export default function SelectCountry({ data }: AppSelectProps) {
-  const [country, setCountry] = useState("");
+  const [country, setCountry] = useState("Worldwide");
 
   const handleChange = (event: SelectChangeEvent<string>) => {
     setCountry(event.target.value);
