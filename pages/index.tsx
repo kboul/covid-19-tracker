@@ -1,5 +1,6 @@
 import { GetStaticProps } from "next";
 import Head from "next/head";
+import styled from "styled-components";
 
 import { Header } from "../components";
 import Country from "../models/country";
@@ -27,9 +28,11 @@ export default function Home({ countries }: HomeProps) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main>
+      <Main>
         <Header countries={countries} />
-      </main>
+      </Main>
     </div>
   );
 }
+
+const Main = styled.main``;

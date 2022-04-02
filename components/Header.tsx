@@ -16,5 +16,11 @@ export default function Header({ countries }: HeaderProps) {
   );
 }
 
-const Container = styled.div``;
+const Container = styled.div`
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  justify-content: space-between;
+`;
+
 const TitleHeader = styled.h1``;
