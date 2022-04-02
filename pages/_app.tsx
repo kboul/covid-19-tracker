@@ -1,8 +1,18 @@
-import "./globals.css";
 import type { AppProps } from "next/app";
+import { createGlobalStyle } from "styled-components";
 
-function MyApp({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />;
+const GlobalStyle = createGlobalStyle`
+  * {
+    box-sizing: border-box;
+    margin: 0px;
+  }
+`;
+
+export default function MyApp({ Component, pageProps }: AppProps) {
+  return (
+    <>
+      <GlobalStyle />
+      <Component {...pageProps} />
+    </>
+  );
 }
-
-export default MyApp;

@@ -23,6 +23,12 @@
     "react/react-in-jsx-scope": "off",
     "react/jsx-props-no-spreading": "off",
     "arrow-body-style": "off",
-    "react/jsx-filename-extension": [1, { "extensions": [".tsx", ".ts"] }]
+    "react/jsx-filename-extension": [1, { "extensions": [".tsx", ".ts"] }],
+    "import/prefer-default-export": "off",
+    "import/no-unresolved": "off",
+    "import/extensions": "off",
+    "react/prop-types": "off",
+    "no-underscore-dangle": "off",
+    "no-use-before-define": "off"
   }
 }
