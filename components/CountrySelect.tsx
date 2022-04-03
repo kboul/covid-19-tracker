@@ -6,7 +6,7 @@ import Select, { SelectChangeEvent } from "@mui/material/Select";
 
 import Country from "../models/country";
 import { useStore } from "../hooks";
-import { initialSelectedCountry } from "../constants";
+import { baseUrl, initialSelectedCountry } from "../constants";
 
 export default function CountrySelect() {
   const countries = useStore(state => state.countries);
@@ -19,9 +19,7 @@ export default function CountrySelect() {
     setSelectedCountry(countryCode);
     if (countryCode === initialSelectedCountry) return;
 
-    const response = await fetch(
-      `https://disease.sh/v3/covid-19/countries/${countryCode}`
-    );
+    const response = await fetch(`${baseUrl}/countries/${countryCode}`);
     const responseData = await response.json();
     setIndCountryInfo(responseData);
   };

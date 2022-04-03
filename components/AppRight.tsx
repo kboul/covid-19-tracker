@@ -22,8 +22,6 @@ export default function AppRight() {
 
 const CasesByCountry = styled.h3``;
 
-const NewCases = styled.h3``;
-
 const CardContainer = styled(Card)`
   flex: 0.45;
   margin-left: 20px;
@@ -32,3 +30,5 @@ const CardContainer = styled(Card)`
     margin-left: 0px;
   }
 `;
+
+const NewCases = styled.h3``;

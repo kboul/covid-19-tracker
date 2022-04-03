@@ -14,6 +14,13 @@ const sortCountriesByCases = (countries: Country[]) => {
   return [...countries].sort((a, b) => (a.cases > b.cases ? -1 : 1));
 };
 
+const getBackground = (index: number) => {
+  return index % 2 ? "#ffffff" : "#f3f2f8";
+};
+
+const countryStyle = { color: "#6a5d5d" };
+const casesStyle = { fontWeight: "bold" };
+
 export default function CasesByCountryTable() {
   const countries = useStore(state => state.countries);
 
@@ -28,9 +35,9 @@ export default function CasesByCountryTable() {
           {sortedCountries.map((country, index) => (
             <TableRow
               key={country.country}
-              sx={{ background: index % 2 ? "#ffffff" : "#f3f2f8" }}>
-              <TableCell sx={{ color: "#6a5d5d" }}>{country.country}</TableCell>
-              <TableCell sx={{ fontWeight: "bold" }}>{country.cases}</TableCell>
+              sx={{ background: getBackground(index) }}>
+              <TableCell sx={countryStyle}>{country.country}</TableCell>
+              <TableCell sx={casesStyle}>{country.cases}</TableCell>
             </TableRow>
           ))}
         </TableBody>
