@@ -30,7 +30,7 @@ export default function Statistics() {
       <InfoCard
         title="Deaths"
         cases={countryInfo.todayDeaths}
-        total={countryInfo.todayDeaths}
+        total={countryInfo.deaths}
       />
     </Container>
   );
