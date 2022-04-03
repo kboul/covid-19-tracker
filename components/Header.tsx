@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-import { CountrySelect } from ".";
+import CountrySelect from "./CountrySelect";
 
 export default function Header() {
   return (

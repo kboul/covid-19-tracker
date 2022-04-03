@@ -4,38 +4,47 @@ import { useEffect } from "react";
 import styled from "styled-components";
 
 import { AppLeft, AppRight } from "../components";
+import { baseUrl } from "../constants";
 import { useStore } from "../hooks";
-import { Country, CountryInfo } from "../models";
+import { Cases, Country, CountryInfo } from "../models";
 
 // prefetch this info on the server before painting the page
 export const getStaticProps: GetStaticProps = async () => {
-  const countriesResponse = await fetch(
-    "https://disease.sh/v3/covid-19/countries"
-  );
+  const countriesResponse = await fetch(`${baseUrl}/countries`);
   const countries = await countriesResponse.json();
 
-  const allCountryInfoResponse = await fetch(
-    "https://disease.sh/v3/covid-19/all"
-  );
+  const allCountryInfoResponse = await fetch(`${baseUrl}/all`);
   const allCountryInfo = await allCountryInfoResponse.json();
 
+  const lastDaysCasesResponse = await fetch(
+    `${baseUrl}/historical/all?lastdays=120`
+  );
+  const lastDaysCases = await lastDaysCasesResponse.json();
+
   return {
-    props: { allCountryInfo, countries }
+    props: { allCountryInfo, countries, lastDaysCases }
   };
 };
 
 interface HomeProps extends Country {
   allCountryInfo: CountryInfo;
   countries: Country[];
+  lastDaysCases: Cases;
 }
 
-export default function Home({ allCountryInfo, countries }: HomeProps) {
+export default function Home({
+  allCountryInfo,
+  countries,
+  lastDaysCases
+}: HomeProps) {
   const setCountries = useStore(state => state.setCountries);
   const setAllCountryInfo = useStore(state => state.setAllCountryInfo);
+  const setLastDaysCases = useStore(state => state.setLastDaysCases);
 
   useEffect(() => {
     setCountries(countries);
     setAllCountryInfo(allCountryInfo);
+    setLastDaysCases(lastDaysCases);
   }, []);
 
   return (

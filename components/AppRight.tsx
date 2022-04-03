@@ -2,6 +2,7 @@ import { Card, CardContent } from "@mui/material";
 import styled from "styled-components";
 
 import CasesByCountryTable from "./CasesByCountryTable";
+import NewCasesLineGraph from "./NewCasesLineGraph";
 
 export default function AppRight() {
   return (
@@ -12,6 +13,8 @@ export default function AppRight() {
         <CasesByCountryTable />
 
         <NewCases>Worldwide new cases</NewCases>
+
+        <NewCasesLineGraph />
       </CardContent>
     </Card>
   );

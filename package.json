@@ -13,14 +13,18 @@
     "@emotion/styled": "^11.8.1",
     "@mui/material": "^5.5.3",
     "@types/styled-components": "^5.1.24",
+    "chart.js": "^3.7.1",
     "next": "12.1.4",
+    "numeral": "^2.0.6",
     "react": "18.0.0",
+    "react-chartjs-2": "^4.0.1",
     "react-dom": "18.0.0",
     "styled-components": "^5.3.5",
     "zustand": "^3.7.1"
   },
   "devDependencies": {
     "@types/node": "17.0.23",
+    "@types/numeral": "^2.0.2",
     "@types/react": "17.0.43",
     "@types/react-dom": "17.0.14",
     "@typescript-eslint/eslint-plugin": "^5.17.0",
