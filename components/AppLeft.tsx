@@ -3,16 +3,11 @@ import styled from "styled-components";
 import Header from "./Header";
 import Map from "./Map";
 import Statistics from "./Statistics";
-import Country from "../models/country";
 
-interface AppLeftProps {
-  countries: Country[];
-}
-
-export default function AppLeft({ countries }: AppLeftProps) {
+export default function AppLeft() {
   return (
     <Container>
-      <Header countries={countries} />
+      <Header />
 
       <Statistics />
 

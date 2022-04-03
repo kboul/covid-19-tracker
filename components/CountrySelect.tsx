@@ -6,12 +6,11 @@ import FormControl from "@mui/material/FormControl";
 import Select, { SelectChangeEvent } from "@mui/material/Select";
 
 import Country from "../models/country";
+import { useStore } from "../hooks";
 
-interface AppSelectProps {
-  data: Country[];
-}
+export default function CountrySelect() {
+  const countries = useStore(state => state.countries);
 
-export default function SelectCountry({ data }: AppSelectProps) {
   const [country, setCountry] = useState("Worldwide");
 
   const handleChange = (event: SelectChangeEvent<string>) => {
@@ -29,7 +28,7 @@ export default function SelectCountry({ data }: AppSelectProps) {
           onChange={handleChange}
           value={country}>
           <MenuItem value="Worldwide">Worldwide</MenuItem>
-          {data.map((item: Country) => (
+          {countries.map((item: Country) => (
             <MenuItem key={item.country} value={item.countryInfo.iso2}>
               {item.country}
             </MenuItem>

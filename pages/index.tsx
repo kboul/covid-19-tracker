@@ -1,25 +1,43 @@
 import { GetStaticProps } from "next";
 import Head from "next/head";
+import { useEffect } from "react";
 import styled from "styled-components";
 
 import { AppLeft, AppRight } from "../components";
-import Country from "../models/country";
+import { useStore } from "../hooks";
+import { Country, CountryInfo } from "../models";
 
 // prefetch this info on the server before painting the page
 export const getStaticProps: GetStaticProps = async () => {
   const countriesResponse = await fetch(
     "https://disease.sh/v3/covid-19/countries"
   );
-  const countries: Promise<Country[]> = await countriesResponse.json();
+  const countries = await countriesResponse.json();
 
-  return { props: { countries } };
+  const allCountryInfoResponse = await fetch(
+    "https://disease.sh/v3/covid-19/all"
+  );
+  const allCountryInfo = await allCountryInfoResponse.json();
+
+  return {
+    props: { allCountryInfo, countries }
+  };
 };
 
 interface HomeProps extends Country {
+  allCountryInfo: CountryInfo;
   countries: Country[];
 }
 
-export default function Home({ countries }: HomeProps) {
+export default function Home({ allCountryInfo, countries }: HomeProps) {
+  const setCountries = useStore(state => state.setCountries);
+  const setAllCountryInfo = useStore(state => state.setAllCountryInfo);
+
+  useEffect(() => {
+    setCountries(countries);
+    setAllCountryInfo(allCountryInfo);
+  }, []);
+
   return (
     <div>
       <Head>
@@ -29,7 +47,7 @@ export default function Home({ countries }: HomeProps) {
       </Head>
 
       <Main>
-        <AppLeft countries={countries} />
+        <AppLeft />
 
         <AppRight />
       </Main>

@@ -1,18 +1,13 @@
 import styled from "styled-components";
 
-import { SelectCountry } from ".";
-import Country from "../models/country";
+import { CountrySelect } from ".";
 
-interface HeaderProps {
-  countries: Country[];
-}
-
-export default function Header({ countries }: HeaderProps) {
+export default function Header() {
   return (
     <Container>
       <TitleHeader>Covid-19 Tracker</TitleHeader>
 
-      <SelectCountry data={countries} />
+      <CountrySelect />
     </Container>
   );
 }
