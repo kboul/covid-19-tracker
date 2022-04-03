@@ -18,5 +18,5 @@ export default function AppLeft() {
 
 const Container = styled.div`
   // uses 90% of the space
-  flex: 0.9;
+  flex: 1;
 `;

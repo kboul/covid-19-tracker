@@ -22,7 +22,7 @@ export default function CasesByCountryTable() {
   return (
     <TableContainer
       component={Paper}
-      sx={{ mt: 2, mb: 2, height: 400, overflow: "scroll" }}>
+      sx={{ mt: 2, mb: 2, height: 400, overflowY: "scroll" }}>
       <Table aria-label="countries table">
         <TableBody>
           {sortedCountries.map((country, index) => (
