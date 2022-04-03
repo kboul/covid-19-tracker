@@ -5,7 +5,8 @@ import FormControl from "@mui/material/FormControl";
 import Select, { SelectChangeEvent } from "@mui/material/Select";
 
 import Country from "../models/country";
-import useStore, { initialSelectedCountry } from "../hooks/useStore";
+import { useStore } from "../hooks";
+import { initialSelectedCountry } from "../constants";
 
 export default function CountrySelect() {
   const countries = useStore(state => state.countries);

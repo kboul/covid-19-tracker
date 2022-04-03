@@ -1,7 +1,8 @@
 import styled from "styled-components";
-import useStore, { initialSelectedCountry } from "../hooks/useStore";
 
 import InfoCard from "./InfoCard";
+import { useStore } from "../hooks";
+import { initialSelectedCountry } from "../constants";
 
 export default function Statistics() {
   const allCountryInfo = useStore(state => state.allCountryInfo);

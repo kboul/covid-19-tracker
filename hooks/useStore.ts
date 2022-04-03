@@ -1,8 +1,7 @@
 import create from "zustand";
 
 import { Cases, Country, CountryInfo } from "../models";
-
-export const initialSelectedCountry = "Worldwide";
+import { initialSelectedCountry } from "../constants";
 
 const useStore = create<{
   allCountryInfo: CountryInfo;
