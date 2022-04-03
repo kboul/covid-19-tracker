@@ -1,15 +1,37 @@
 import styled from "styled-components";
+import useStore, { initialSelectedCountry } from "../hooks/useStore";
 
 import InfoCard from "./InfoCard";
 
 export default function Statistics() {
+  const allCountryInfo = useStore(state => state.allCountryInfo);
+  const indCountryInfo = useStore(state => state.indCountryInfo);
+  const selectedCountry = useStore(state => state.selectedCountry);
+
+  const countryInfo =
+    selectedCountry === initialSelectedCountry
+      ? allCountryInfo
+      : indCountryInfo;
+
   return (
     <Container>
-      <InfoCard title="Coronavirus cases" cases={123} total={2000} />
+      <InfoCard
+        title="Coronavirus cases"
+        cases={countryInfo.todayCases}
+        total={countryInfo.cases}
+      />
 
-      <InfoCard title="Recovered" cases={1234} total={3000} />
+      <InfoCard
+        title="Recovered"
+        cases={countryInfo.todayRecovered}
+        total={countryInfo.recovered}
+      />
 
-      <InfoCard title="Deaths" cases={12345} total={4000} />
+      <InfoCard
+        title="Deaths"
+        cases={countryInfo.todayDeaths}
+        total={countryInfo.todayDeaths}
+      />
     </Container>
   );
 }
