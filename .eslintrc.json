@@ -29,6 +29,10 @@
     "import/extensions": "off",
     "react/prop-types": "off",
     "no-underscore-dangle": "off",
-    "no-use-before-define": "off"
+    "no-use-before-define": "off",
+    // for typescript interfaces
+    "no-unused-vars": "off",
+    "@typescript-eslint/no-unused-vars": ["error"],
+    "no-restricted-exports": "off"
   }
 }
