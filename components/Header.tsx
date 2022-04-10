@@ -19,4 +19,7 @@ const Container = styled.div`
   justify-content: space-between;
 `;
 
-const TitleHeader = styled.h1``;
+const TitleHeader = styled.h1`
+  color: #fc3c3c;
+  font-size: 2rem;
+`;
