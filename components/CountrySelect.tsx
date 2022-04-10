@@ -6,6 +6,7 @@ import Select, { SelectChangeEvent } from "@mui/material/Select";
 
 import Country from "../models/country";
 import { useStore } from "../hooks";
+import { IndCountryInfo } from "../models";
 import { baseUrl, initialSelectedCountry } from "../constants";
 
 export default function CountrySelect() {
@@ -17,7 +18,10 @@ export default function CountrySelect() {
   const handleChange = async (event: SelectChangeEvent<string>) => {
     const countryCode = event.target.value;
     setSelectedCountry(countryCode);
-    if (countryCode === initialSelectedCountry) return;
+    if (countryCode === initialSelectedCountry) {
+      setIndCountryInfo({} as IndCountryInfo);
+      return;
+    }
 
     const response = await fetch(`${baseUrl}/countries/${countryCode}`);
     const responseData = await response.json();

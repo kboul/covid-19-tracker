@@ -23,4 +23,6 @@ const casesTypeColors = {
   }
 };
 
-export { casesTypeColors, position, style };
+const initialZoom = 3;
+
+export { casesTypeColors, initialZoom, position, style };

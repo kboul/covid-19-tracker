@@ -1,28 +1,30 @@
 import create from "zustand";
 
-import { Cases, Country, CountryInfo } from "../models";
+import { Cases, Country, AllCountryInfo, IndCountryInfo } from "../models";
 import { initialSelectedCountry } from "../constants";
 
 const useStore = create<{
-  allCountryInfo: CountryInfo;
+  allCountryInfo: AllCountryInfo;
   countries: Country[];
-  indCountryInfo: CountryInfo;
+  indCountryInfo: IndCountryInfo;
   lastDaysCases: Cases;
   selectedCountry: string;
-  setAllCountryInfo: (allCountryInfo: CountryInfo) => void;
+  setAllCountryInfo: (allCountryInfo: AllCountryInfo) => void;
   setCountries: (countries: Country[]) => void;
-  setIndCountryInfo: (indCountryInfo: CountryInfo) => void;
+  setIndCountryInfo: (indCountryInfo: IndCountryInfo) => void;
   setLastDaysCases: (lastDaysCases: Cases) => void;
   setSelectedCountry: (selectedCountry: string) => void;
 }>(set => ({
-  allCountryInfo: {} as CountryInfo,
+  allCountryInfo: {} as AllCountryInfo,
   countries: [] as Country[],
-  indCountryInfo: {} as CountryInfo,
+  indCountryInfo: {} as IndCountryInfo,
   lastDaysCases: {} as Cases,
   selectedCountry: initialSelectedCountry,
-  setAllCountryInfo: (allCountryInfo: CountryInfo) => set({ allCountryInfo }),
+  setAllCountryInfo: (allCountryInfo: AllCountryInfo) =>
+    set({ allCountryInfo }),
   setCountries: (countries: Country[]) => set({ countries }),
-  setIndCountryInfo: (indCountryInfo: CountryInfo) => set({ indCountryInfo }),
+  setIndCountryInfo: (indCountryInfo: IndCountryInfo) =>
+    set({ indCountryInfo }),
   setLastDaysCases: (lastDaysCases: Cases) => set({ lastDaysCases }),
   setSelectedCountry: (selectedCountry: string) => set({ selectedCountry })
 }));
