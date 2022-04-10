@@ -17,6 +17,7 @@ export default function Statistics() {
   return (
     <Container>
       <InfoCard
+        isGreen={false}
         title="Coronavirus cases"
         type="cases"
         cases={countryInfo.todayCases}
@@ -24,6 +25,7 @@ export default function Statistics() {
       />
 
       <InfoCard
+        isGreen
         title="Recovered"
         type="recovered"
         cases={countryInfo.todayRecovered}
@@ -31,6 +33,7 @@ export default function Statistics() {
       />
 
       <InfoCard
+        isGreen={false}
         title="Deaths"
         type="deaths"
         cases={countryInfo.todayDeaths}

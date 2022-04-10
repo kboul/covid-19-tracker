@@ -1,8 +1,8 @@
 import styled from "styled-components";
 import { Typography } from "@mui/material";
 
-const Cases = styled.h2`
-  color: #cc1034;
+const Cases = styled.h2<{ isGreen: boolean }>`
+  color: ${({ isGreen }) => (isGreen ? "lightgreen" : "#cc1034")};
   font-weight: 600;
   font-size: 1.75rem;
   margin-bottom: 0.5rem;
