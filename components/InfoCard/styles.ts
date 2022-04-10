@@ -8,8 +8,11 @@ const Cases = styled.h2`
   margin-bottom: 0.5rem;
 `;
 
-const Container = styled.div`
+const Container = styled.div<{ active: boolean; isGreen: boolean }>`
   flex: 1;
+  cursor: pointer;
+  border-top: ${({ active, isGreen }) =>
+    active ? `10px solid ${isGreen ? "greenyellow" : "red"}` : "0px"};
 
   :not(:last-child) {
     margin-right: 15px;

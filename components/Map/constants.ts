@@ -2,7 +2,16 @@ const style = { width: "100%", height: "100%", borderRadius: "12px" };
 
 const position = { lat: 34.8, lng: -40.47 };
 
-const casesTypeColors = {
+interface CasesTypeColors {
+  [key: string]: {
+    hex: string;
+    rgb: string;
+    half_op: string;
+    multiplier: number;
+  };
+}
+
+const casesTypeColors: CasesTypeColors = {
   cases: {
     hex: "#CC1034",
     rgb: "rgb(204, 16, 52)",

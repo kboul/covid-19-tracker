@@ -18,18 +18,21 @@ export default function Statistics() {
     <Container>
       <InfoCard
         title="Coronavirus cases"
+        type="cases"
         cases={countryInfo.todayCases}
         total={countryInfo.cases}
       />
 
       <InfoCard
         title="Recovered"
+        type="recovered"
         cases={countryInfo.todayRecovered}
         total={countryInfo.recovered}
       />
 
       <InfoCard
         title="Deaths"
+        type="deaths"
         cases={countryInfo.todayDeaths}
         total={countryInfo.deaths}
       />
