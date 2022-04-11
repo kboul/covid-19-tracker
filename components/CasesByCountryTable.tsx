@@ -6,6 +6,7 @@ import {
   TableContainer,
   TableRow
 } from "@mui/material";
+import numeral from "numeral";
 
 import { useStore } from "../hooks";
 import { Country } from "../models";
@@ -19,7 +20,7 @@ const getBackground = (index: number) => {
 };
 
 const countryStyle = { color: "#6a5d5d" };
-const casesStyle = { fontWeight: "bold" };
+const casesStyle = { fontWeight: "bold", color: "#6a5d5d" };
 
 export default function CasesByCountryTable() {
   const countries = useStore(state => state.countries);
@@ -37,7 +38,9 @@ export default function CasesByCountryTable() {
               key={country.country}
               sx={{ background: getBackground(index) }}>
               <TableCell sx={countryStyle}>{country.country}</TableCell>
-              <TableCell sx={casesStyle}>{country.cases}</TableCell>
+              <TableCell sx={casesStyle}>
+                {numeral(country.cases).format("0,0")}
+              </TableCell>
             </TableRow>
           ))}
         </TableBody>
