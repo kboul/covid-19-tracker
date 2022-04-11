@@ -6,7 +6,7 @@ import styled from "styled-components";
 import { AppLeft, AppRight } from "../components";
 import { baseUrl } from "../constants";
 import { useStore } from "../hooks";
-import { Cases, Country, CountryInfo } from "../models";
+import { Cases, Country, AllCountryInfo } from "../models";
 
 // prefetch this info on the server before painting the page
 export const getStaticProps: GetStaticProps = async () => {
@@ -27,7 +27,7 @@ export const getStaticProps: GetStaticProps = async () => {
 };
 
 interface HomeProps extends Country {
-  allCountryInfo: CountryInfo;
+  allCountryInfo: AllCountryInfo;
   countries: Country[];
   lastDaysCases: Cases;
 }
@@ -67,7 +67,7 @@ export default function Home({
 const Main = styled.main`
   display: flex;
   justify-content: space-evenly;
-
+  height: 100vh;
   padding: 20px;
 
   @media (max-width: 990px) {

@@ -6,7 +6,7 @@ import NewCasesLineGraph from "./NewCasesLineGraph";
 
 export default function AppRight() {
   return (
-    <CardContainer>
+    <MuiCard>
       <CardContent>
         <CasesByCountry>Live Cases by Country</CasesByCountry>
 
@@ -16,13 +16,13 @@ export default function AppRight() {
 
         <NewCasesLineGraph />
       </CardContent>
-    </CardContainer>
+    </MuiCard>
   );
 }
 
 const CasesByCountry = styled.h3``;
 
-const CardContainer = styled(Card)`
+const MuiCard = styled(Card)`
   flex: 0.45;
   margin-left: 20px;
 

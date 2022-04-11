@@ -1,8 +1,9 @@
 import styled from "styled-components";
 
 const Container = styled.div`
+  flex-grow: 1;
   margin: 20px 0px 0px 0px;
-  height: 600px;
+  height: 500px;
   background-color: white;
   padding: 1rem;
   border-radius: 20px;
