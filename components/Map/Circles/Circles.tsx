@@ -1,4 +1,3 @@
-import { useEffect, useRef } from "react";
 import { Circle, Popup } from "react-leaflet";
 import numeral from "numeral";
 
@@ -12,23 +11,17 @@ export default function Circles() {
   const casesType = useStore(state => state.casesType);
   const countries = useStore(state => state.countries);
 
-  const ref = useRef<any>();
-
-  useEffect(() => {
-    if (ref?.current)
-      ref.current.setStyle({ fillColor: casesTypeColors[casesType]?.hex });
-  }, [casesType]);
-
   return (
     <>
       {countries.map((country: Country) => (
         <Circle
-          ref={ref}
           center={[country.countryInfo.lat, country.countryInfo.long]}
-          color={casesTypeColors[casesType]?.hex}
-          fillColor={casesTypeColors[casesType]?.hex}
           fillOpacity={0.4}
           key={country.country}
+          pathOptions={{
+            color: casesTypeColors[casesType]?.hex,
+            fillColor: casesTypeColors[casesType]?.hex
+          }}
           radius={getRadius(casesType, country)}>
           <Popup>
             <Styled.InfoFlag country={country} />
