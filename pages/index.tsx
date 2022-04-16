@@ -37,14 +37,10 @@ export default function Home({
   countries,
   lastDaysCases
 }: HomeProps) {
-  const setCountries = useStore(state => state.setCountries);
-  const setAllCountryInfo = useStore(state => state.setAllCountryInfo);
-  const setLastDaysCases = useStore(state => state.setLastDaysCases);
+  const setGlobalState = useStore(state => state.setGlobalState);
 
   useEffect(() => {
-    setCountries(countries);
-    setAllCountryInfo(allCountryInfo);
-    setLastDaysCases(lastDaysCases);
+    setGlobalState({ countries, allCountryInfo, lastDaysCases });
   }, []);
 
   return (

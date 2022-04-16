@@ -16,6 +16,7 @@ const useStore = create<{
   setIndCountryInfo: (indCountryInfo: IndCountryInfo) => void;
   setLastDaysCases: (lastDaysCases: Cases) => void;
   setSelectedCountry: (selectedCountry: string) => void;
+  setGlobalState: (data: any) => void;
 }>(set => ({
   allCountryInfo: {} as AllCountryInfo,
   casesType: "cases",
@@ -30,7 +31,8 @@ const useStore = create<{
   setIndCountryInfo: (indCountryInfo: IndCountryInfo) =>
     set({ indCountryInfo }),
   setLastDaysCases: (lastDaysCases: Cases) => set({ lastDaysCases }),
-  setSelectedCountry: (selectedCountry: string) => set({ selectedCountry })
+  setSelectedCountry: (selectedCountry: string) => set({ selectedCountry }),
+  setGlobalState: (data: any) => set({ ...data })
 }));
 
 export default useStore;
