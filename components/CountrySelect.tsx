@@ -12,20 +12,19 @@ import { baseUrl, initialSelectedCountry } from "../constants";
 export default function CountrySelect() {
   const countries = useStore(state => state.countries);
   const selectedCountry = useStore(state => state.selectedCountry);
-  const setIndCountryInfo = useStore(state => state.setIndCountryInfo);
-  const setSelectedCountry = useStore(state => state.setSelectedCountry);
+  const setGlobalState = useStore(state => state.setGlobalState);
 
   const handleChange = async (event: SelectChangeEvent<string>) => {
     const countryCode = event.target.value;
-    setSelectedCountry(countryCode);
+    const payload = { selectedCountry: countryCode };
     if (countryCode === initialSelectedCountry) {
-      setIndCountryInfo({} as IndCountryInfo);
+      setGlobalState({ ...payload, indCountryInfo: {} as IndCountryInfo });
       return;
     }
 
     const response = await fetch(`${baseUrl}/countries/${countryCode}`);
     const responseData = await response.json();
-    setIndCountryInfo(responseData);
+    setGlobalState({ ...payload, indCountryInfo: responseData });
   };
 
   return (

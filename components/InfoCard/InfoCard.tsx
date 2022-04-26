@@ -20,9 +20,9 @@ export default function InfoCard({
   type
 }: InfoBoxProps) {
   const casesType = useStore(state => state.casesType);
-  const setCasesType = useStore(state => state.setCasesType);
+  const setGlobalState = useStore(state => state.setGlobalState);
 
-  const handleClick = () => setCasesType(type);
+  const handleClick = () => setGlobalState({ casesType: type });
 
   return (
     <Styled.Container
